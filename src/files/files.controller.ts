@@ -14,8 +14,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { FilesService } from './files.service';
-import { CreateFileDto } from './dto/create-file.dto';
-import { UpdateFileDto } from './dto/update-file.dto';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { fileStorage } from './storage';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -67,6 +65,6 @@ export class FilesController {
 
   @Delete()
   remove(@UserId() userId: number, @Query('id') ids: string) {
-    return this.filesService.remove(userId, ids)
+    return this.filesService.remove(userId, ids);
   }
 }
